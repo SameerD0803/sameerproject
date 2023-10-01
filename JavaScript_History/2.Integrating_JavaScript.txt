@@ -1,0 +1,45 @@
+                            Integrating JavaScript into Page
+                            ================================
+1) Inline         ==> Used in Elements
+2) Embedded       ==> Used in Head and Body
+3) External File  ==> Create External Js file and link
+
+Note: Always use "Minified" script file in "Production".
+        website : jsminifier.com
+
+How JavaScript Refers HTML elemtents?
+1) JavaScript can refer HTML elements by using DOM hierachy. 
+- If you change the position of any element in page, then every time you have to update its position in code.
+- It is faster in rendering
+
+2) JavaScript can refer elements by using "name".
+- You can access any element directly by using its reference name.
+- You can't access child elements directly.
+- You have to refer both parent and child hierachy.
+
+3) You can refer by using "ID"
+    document.getElementById()
+- Every element can be configured with only one ID.
+- ID have conflict with CSS reference
+- ID is not required if you are accessing any direct document element.
+
+4) JavaScript can refer any element by using CSS selectors
+    document.querySelector()
+- Query selector can apply effects only to the firt element.
+- How ever it can handle data for multiple elements.
+- It can also handle styles for multiple elements.
+Syntax:
+        document.querySelector("h2")          // type selector
+        document.querySelector("#pic")        // id selector
+        document.querySelector(".pic")        // class selector
+    
+5) JavaScript can refer all elements having common Name
+    document.getElementsByName()
+
+6) JavaScript can refer all elements having common class Name
+    document.getElementsByClassName()
+
+7) JavaScript can refer all elements by using Tag Name 
+    document.getElementsByTagName()
+
+
