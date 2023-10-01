@@ -1,0 +1,159 @@
+
+                        JavaScript output Techniques
+                        -----------------------------------------
+- Output is the process of presenting data in UI.
+- JavaScript have various output techniques
+
+1. alert()
+2. confirm()
+3. document.write()
+4. console methods [log(), warn(), error(), info(), debug()]
+5. innerText
+6. innerHTML
+7. outerHTML
+
+alert()
+- It can display output in a message box.
+- It will not allow to cancel.
+- It is only for mandatory confirmation.
+- You can't perform any another task until or unless you confirm with OK.
+
+Syntax:
+        alert("your message");
+        alert("line-1 \n line-2 \n line-3");
+
+confirm()
+- It is similar to alert box but allows to cancel.
+- confirm() method returns
+        true on OK
+        false on Cancel
+
+Syntax:
+       confirm("your message");
+       flag = confirm("your message");
+
+       flag == true            => on OK
+       flag == false            => on Cancel
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function DeleteClick(){
+           flag =  confirm("Deleted Record \nAre you sure?");
+           if(flag==true)
+           {
+            alert("Record Deleted Successfully..");
+           } else {
+             alert("You canceled..");
+           }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="DeleteClick()">Delete</button>
+</body>
+</html>
+
+document.write()
+- It can display output on new screen.
+- It can render message or markup as output.
+
+Syntax:
+    document.write("your message");
+    document.write("<h2></h2>");
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function DeleteClick(){
+           flag =  confirm("Deleted Record \nAre you sure?");
+           if(flag==true)
+           {
+            document.write("<h2><font color='red' face='Arial'>Record Deleted Successfully..</font></h2><a href='output.html'>Back</a>");
+           } else {
+             alert("You canceled..");
+           }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="DeleteClick()">Delete</button>
+</body>
+</html>
+
+innerText
+- It is an output technique used for containers that can display text.
+- It can display only plain text.
+- It will not allow any markup.
+- Containers can be
+    <div> <span> <p> <h2> <dd> <li> <td> <dt> etc..
+   
+Syntax:
+    document.querySelector("p").innerText = "some message";
+
+innerHTML
+- It is similar to innerText but allows markup.
+
+Syntax:
+    document.querySelector("p").innerHTML = "msg | markup";
+
+- If you are rendering any element it will be rendered as child element.
+
+outerHTML
+- It removes the existing element and renders the current element.
+
+Syntax:
+    document.querySelector("p").outerHTML = "msg | markup";
+
+console methods:
+- The console method are not for users.
+- They are for developers
+- We use these method to log the tracking messages.
+
+Syntax:
+    console.log("message")
+    console.error("message")
+    console.log("line1 \n line2")
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function DeleteClick(){
+            console.warn("Delete Clicked");
+           flag =  confirm("Deleted Record \nAre you sure?");
+           if(flag==true)
+           {
+            console.error("Delete Confirmed with OK");
+            document.write("<h2><font color='red' face='Arial'>Record Deleted Successfully..</font></h2><a href='output.html'>Back</a>");
+           } else {
+               console.log("Cancel clicked");
+               document.querySelector("p").outerHTML = "<h2>Delete Canceled..</h2>";
+           }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="DeleteClick()">Delete</button>
+    <div style="display: flex; align-items: center; justify-content: center; height: 400px;">
+        <p></p>
+    </div>
+</body>
+</html>

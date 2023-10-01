@@ -171,3 +171,159 @@ Ex:
     </div>
 </body>
 </html>
+
+                      How JavaScript takes control over HTML elements?
+1. By using DOM hierarchy
+
+2. You can refer by using name
+- Every element can have a reference name.
+- You can access by using its reference name.
+
+Syntax:
+    <img  name="pic">
+    pic.src="path";
+
+- If you are reffering any child element, then without refering its parent you can't access the child.
+
+EX:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function bodyload(){
+            pic.src="../public/images/shoe.jpg";
+            frmRegister.btnRegister.value="Register";
+            frmLogin.btnLogin.value = "Login";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div>
+        <img width="100" name="pic" height="100" border="2">
+    </div>
+    <div>
+        <form name="frmRegister">
+            <h2>Register</h2>
+            User Name <input type="text"> <input name="btnRegister" type="button">
+        </form>
+    </div>
+    <div>
+        <form name="frmLogin">
+            <h2>Login</h2>
+            Your Email <input type="email"> <input name="btnLogin" type="button">
+        </form>
+    </div>
+</body>
+</html>
+
+3. You can refer element by using ID
+- Every element can have an ID.
+- You can access element using its ID directly even if it is a child.
+
+Syntax:
+    document.getElementById()
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function bodyload(){
+            document.getElementById("pic").src="../public/images/shoe.jpg";
+            document.getElementById("btnRegister").value = "Register";
+            document.getElementById("btnLogin").value = "Login";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div>
+        <img id="pic" width="100" name="pic" height="100" border="2">
+    </div>
+    <div>
+        <form name="frmRegister">
+            <h2>Register</h2>
+            User Name <input type="text"> <input id="btnRegister" name="btnRegister" type="button">
+        </form>
+    </div>
+    <div>
+        <form name="frmLogin">
+            <h2>Login</h2>
+            Your Email <input type="email"> <input id="btnLogin" name="btnLogin" type="button">
+        </form>
+    </div>
+</body>
+</html>
+
+4. You can access or refer HTML elements by using CSS selectors.
+- CSS selectors can be
+    a) Primary
+    b) Attribute
+    c) Rational
+    d) Pseudo classes etc..
+- The method used to access CSS selectors is
+
+Syntax:
+        document.querySelector("img")
+        document.querySelector("#id")
+        document.querySelector(".className")
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function bodyload(){
+           document.querySelector("img").src="../public/images/shoe.jpg";
+           document.querySelector("#btnRegister").value = "Register";
+           document.querySelector(".btn-login").value="Login";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div>
+        <img id="pic" width="100" name="pic" height="100" border="2">
+    </div>
+    <div>
+        <form name="frmRegister">
+            <h2>Register</h2>
+            User Name <input type="text"> <input id="btnRegister" name="btnRegister" type="button">
+        </form>
+    </div>
+    <div>
+        <form name="frmLogin">
+            <h2>Login</h2>
+            Your Email <input type="email"> <input class="btn-login" id="btnLogin" name="btnLogin" type="button">
+        </form>
+    </div>
+</body>
+</html>
+
+Summary
+1. refer by DOM
+2. refer by Name
+3. refer by ID
+4. refer by QuerySelector
+
+- You can also refer multiple elements and access as collection.
+
+        getElementsByTagName()
+        getElementsByClassName()
+        getElementsByName()
+
+Ex:
+ function bodyload(){
+            collection = document.getElementsByTagName("form");
+            alert("Total Number of Forms : " + collection.length);
+ }
