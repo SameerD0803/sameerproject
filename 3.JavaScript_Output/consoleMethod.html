@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function DeleteClick(){
+            console.warn("Delete Clicked");
+           flag =  confirm("Deleted Record \nAre you sure?");
+           if(flag==true)
+           {
+            console.error("Delete Confirmed with OK");
+            document.write("<h2><font color='red' face='Arial'>Record Deleted Successfully..</font></h2><a href='output.html'>Back</a>");
+           } else {
+               console.log("Cancel clicked");
+               document.querySelector("p").outerHTML = "<h2>Delete Canceled..</h2>";
+           }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="DeleteClick()">Delete</button>
+    <div style="display: flex; align-items: center; justify-content: center; height: 400px;">
+        <p></p>
+    </div>
+</body>
+</html>
