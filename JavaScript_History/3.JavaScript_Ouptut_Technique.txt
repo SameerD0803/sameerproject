@@ -1,9 +1,0 @@
-                        JavaScript Output Techniques
-
-- alert()
-- confirm()
-- console.log(), warm(), success(), error(), debug(), info() etc...
-- innerText
-- innerHTML
-- outerHTML
-- document.write()

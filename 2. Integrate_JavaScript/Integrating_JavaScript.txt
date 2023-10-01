@@ -1,0 +1,173 @@
+                            Integrating JavaScript into Page
+                            ================================
+FAQ: How JavaScript is intergrated into HTML page?
+Ans : You can use javascript
+        a) Inline
+        b) Embedded
+        c) External File
+
+
+Ex: Inline
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Click Print Button to Print Page</h2>
+    <button onclick="window.print()">Print</button>
+</body>
+</html>                                    
+
+Ex: Embedded
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function PrintPage(){
+            window.print();
+        }
+    </script>
+</head>
+<body>
+    <h2>Click Print Button to Print Page</h2>
+    <button onclick="PrintPage()">Print</button>
+</body>
+</html>
+
+- You can embed in head or body section.
+- You can embed by using <script> element.
+- MIME type of script is "text/javascript".
+
+Syntax:
+    <script type="text/javascript">
+    </script>
+
+Ex: External File
+- JavaScript functions are kept in a separate script file that have extention ".js"
+- You can link the script files by using <script> element.
+- You can access scripts from any page.
+
+1. Go to "src/scripts" folder
+2. Add a new file
+
+        "printing.js"
+
+function PrintPage(){
+    window.print();
+}
+
+3. home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../src/scripts/printing.js"></script>
+</head>
+<body>
+    <h2>Click Print Button to Print Page</h2>
+    <button onclick="PrintPage()">Print</button>
+</body>
+</html>
+
+- You can Minify the JavaScript files
+    https://jsminify.org/
+
+printing.js
+function PrintPage(){
+    window.print();
+}
+
+printing.min.js
+function PrintPage(){window.print()}
+
+<script src="printing.min.js"> </script>
+
+FAQ: What is strict mode?
+Ans:  It enables strict typing in JavaScript, which will not allow the developers
+        to write logic without following standards.
+
+FAQ: How to turn on strict mode?
+Ans:  By using "use strict";
+
+Syntax:
+        <script>
+            "use strict";
+             x  = 10;                                // Error => x is not defined
+             document.write("x=" + x);            [ remove use strict, then it is valid]
+        </script>        
+
+Note: Turning on strict mode will reduce code inconsistency.
+
+FAQ: What is Strongly Typed and Strictly Typed?
+Ans:  Strongly typed is about data type.
+        Strictly typed is about coding standards.
+
+
+FAQ: How to target JavaScript for Legacy Browsers?
+Ans:  By enclosing the script in HTML comments
+
+        <!--
+            code
+        -->
+Ex:
+<script>
+   <!--
+    "use strict";
+    var x;
+    x = 20;
+    document.write("x=" + x);
+   -->
+</script>
+
+
+FAQ: How JavaScript takes control over HTML elements in Page?
+Ans:
+1. JavaScript can refer HTML elements by using DOM hiearchy.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function bodyload(){
+            window.document.images[0].src = "../public/images/shoe.jpg";
+            window.document.forms[0].elements[1].value = "Register";
+            window.document.forms[1].elements[1].value = "Login";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div>
+        <img width="100" height="100" border="2">
+    </div>
+    <div>
+        <form>
+            <h2>Register</h2>
+            User Name <input type="text"> <input type="button">
+        </form>
+    </div>
+    <div>
+        <form>
+            <h2>Login</h2>
+            Your Email <input type="email"> <input type="button">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+                        JavaScript Output Techniques
+                        ============================
+
+- alert()
+- confirm()
+- console.log(), warm(), success(), error(), debug(), info() etc...
+- innerText
+- innerHTML
+- outerHTML
+- document.write()
+
+                        JavaScript Input Techniques
+                        ===========================
+
+- prompt()
+- form input elements
+
+            prompt():-
+- It is like alert with input.
+Syntax :
+        prompt("Your message", "Default value/optional");
+-prompt returns
+                null        on cancel
+                "[empty]    on ok without value 
+                value       on ok with value
+
+            form input elements:-
+-You can use form input elements like
+    textbox, password, number, email, radio, checkbox, listbox, dropdown etc...
+-Every form element must have a reference ID
+       <input type="text" id="txtName">
+       <select type="lstCities">
+       <input type="checkbox" id="optStock"> 
+-You can access element and use its properties
+        document.getElementById("txtName").value;
+        document.getElementById("lstCities").value;
+        document.getElementById("optStock").checked==true/false;
